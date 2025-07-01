@@ -1,26 +1,27 @@
 ﻿using System.IO;
 
-namespace WinClockIn.Services;
-
-public static class LogService
+namespace WinClockIn.Services
 {
-    private static readonly object _lock = new();
-    private static readonly string LogDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
-    private static readonly string LogFilePath = Path.Combine(LogDirectory, $"log_{DateTime.Now:yyyyMMdd}.txt");
-
-    static LogService()
+    public static class LogService
     {
-        if (!Directory.Exists(LogDirectory))
-            Directory.CreateDirectory(LogDirectory);
-    }
+        private static readonly object _lock = new();
+        private static readonly string LogDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
+        private static readonly string LogFilePath = Path.Combine(LogDirectory, $"log_{DateTime.Now:yyyyMMdd}.txt");
 
-    public static void LogThis(string action, string error)
-    {
-        var logEntry = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ACTION: {action} | ERROR: {error}";
-
-        lock (_lock)
+        static LogService()
         {
-            File.AppendAllText(LogFilePath, logEntry + Environment.NewLine);
+            if (!Directory.Exists(LogDirectory))
+                Directory.CreateDirectory(LogDirectory);
+        }
+
+        public static void LogThis(string action, string error)
+        {
+            var logEntry = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ACTION: {action} | ERROR: {error}";
+
+            lock (_lock)
+            {
+                File.AppendAllText(LogFilePath, logEntry + Environment.NewLine);
+            }
         }
     }
 }
