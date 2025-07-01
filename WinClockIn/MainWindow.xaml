@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WinClockIn"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Win - Clock - In" Height="232" Width="368" WindowStyle="ToolWindow">
     <Grid>
-
+        <Button x:Name="Btn_Start" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,133,0,0" Height="21" Width="83"/>
+        <Label Content="State:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Clocked:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Label Content="TTL:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Btn_Stop" Content="Stop" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,169,0,0" Height="21" Width="83"/>
+        <Label x:Name="Label_State" Content="{}{state}" HorizontalAlignment="Left" Margin="54,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_Clocked" Content="{}{clocked}" HorizontalAlignment="Left" Margin="70,41,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_TTL" Content="{}{ttl}" HorizontalAlignment="Left" Margin="46,72,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Daily Activity" Margin="140,0,0,0" Height="196" VerticalAlignment="Center" HorizontalAlignment="Left" Width="218">
+            <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        </GroupBox>
     </Grid>
 </Window>
