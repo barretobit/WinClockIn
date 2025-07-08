@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WinClockIn"
         mc:Ignorable="d"
-        Title="Win - Clock - In" Height="232" Width="368" WindowStyle="ToolWindow">
+        Title="Win - Clock - In" Height="241" Width="381" WindowStyle="ToolWindow">
     <Grid>
-        <Button x:Name="Btn_Start" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,133,0,0" Height="21" Width="83"/>
+        <Button x:Name="Btn_Start" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,133,0,0" Height="21" Width="83" Click="Btn_Start_Click"/>
         <Label Content="State:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Clocked:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
         <Label Content="TTL:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>

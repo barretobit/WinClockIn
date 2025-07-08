@@ -1,6 +1,8 @@
 ﻿using System.Configuration;
 using System.Data;
+using System.Reflection.Emit;
 using System.Windows;
+using WinClockIn.Services;
 
 namespace WinClockIn
 {
@@ -10,5 +12,4 @@ namespace WinClockIn
     public partial class App : Application
     {
     }
-
 }
