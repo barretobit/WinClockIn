@@ -18,27 +18,14 @@ namespace WinClockIn.Services
                 File.WriteAllText(FilePath, "[]"); // Create empty array to start
         }
 
-        public static void SaveOrUpdateRegistry(DayRegistry registry)
+        public static string ReadFile()
         {
-            var all = LoadAll();
+            return File.ReadAllText(FilePath);
+        } 
 
-            // Ensure only one entry per day (based on LogIn date)
-            var existing = all.FirstOrDefault(x => x.LogIn.Date == registry.LogIn.Date);
-            if (existing != null)
-            {
-                all.Remove(existing);
-            }
-
-            all.Add(registry);
-
-            var json = JsonSerializer.Serialize(all, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(FilePath, json);
-        }
-
-        public static List<DayRegistry> LoadAll()
+        public static void UpdateFile(string entireFile)
         {
-            var json = File.ReadAllText(FilePath);
-            return JsonSerializer.Deserialize<List<DayRegistry>>(json) ?? new List<DayRegistry>();
+            File.WriteAllText(FilePath, entireFile);
         }
     }
 }
